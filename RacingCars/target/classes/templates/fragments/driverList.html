@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:fragment="driverList">
+    <div th:fragment="driverList">
+        <div class="form-group">
+            <label>Chọn 2 Tay Đua</label>
+            <select multiple name="driverIds" class="form-control" required size="5">
+                <option th:each="driver : ${drivers}" th:value="${driver.id}" th:text="${driver.name}"></option>
+            </select>
+            <small class="form-text text-muted">Giữ phím Ctrl (Cmd trên Mac) để chọn nhiều tay đua.</small>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

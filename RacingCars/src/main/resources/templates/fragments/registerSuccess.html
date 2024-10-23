@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Đăng kí thành công</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Đăng kí thành công cho chặng đua: <span th:text="${selectedRace.name}"></span></h2>
+
+  <div class="alert alert-success mt-3">
+    Đăng kí thành công cho đội đua. Dưới đây là danh sách các tay đua đã đăng ký:
+  </div>
+
+  <!-- Display Registered Participants -->
+  <table class="table table-striped mt-3">
+    <thead>
+    <tr>
+      <th>Tên Tay Đua</th>
+      <th>Đội Đua</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="participant : ${registeredParticipants}">
+      <td th:text="${participant.driver.name}"></td>
+      <td th:text="${participant.team.name}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Link to go back to the registration form -->
+  <a href="/register" class="btn btn-primary mt-3">Đăng ký thêm</a>
+</div>
+</body>
+</html>

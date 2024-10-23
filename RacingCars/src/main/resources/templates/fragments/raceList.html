@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="race" name="raceId" class="form-control">
+    <option value="" disabled selected>Chọn Chặng Đua</option>
+    <option th:each="race : ${races}" th:value="${race.id}" th:text="${race.name}"></option>
+</select>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách đăng ký thi đấu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, indianred, lightskyblue); /* Tạo hiệu ứng nền gradient */
+            font-family: Arial, sans-serif; /* Chọn font chữ */
+            color: #333; /* Màu chữ */
+        }
+
+        .container {
+            background: #ffffff; /* Nền trắng cho khung */
+            padding: 30px; /* Padding cho khung */
+            border-radius: 15px; /* Bo tròn góc */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khung */
+            margin-top: 30px; /* Khoảng cách trên khung */
+        }
+
+        h2 {
+            text-align: center; /* Canh giữa tiêu đề */
+            color: #0056b3; /* Màu chữ tiêu đề */
+            margin-bottom: 30px; /* Khoảng cách dưới tiêu đề */
+        }
+
+        .btn-primary {
+            background-color: #0056b3; /* Màu nút */
+            border-color: #0056b3; /* Màu viền nút */
+            margin-bottom: 20px; /* Khoảng cách dưới nút đăng ký */
+        }
+
+        .btn-primary:hover {
+            background-color: #003a7d; /* Màu nút khi hover */
+            border-color: #003a7d; /* Màu viền nút khi hover */
+        }
+
+        table {
+            border-collapse: collapse; /* Gộp các ô lại với nhau */
+            width: 100%; /* Chiều rộng đầy đủ cho bảng */
+        }
+
+        th, td {
+            text-align: left; /* Canh trái cho nội dung */
+            padding: 12px; /* Khoảng cách trong ô */
+        }
+
+        th {
+            background-color: #0056b3; /* Màu nền cho tiêu đề bảng */
+            color: white; /* Màu chữ cho tiêu đề bảng */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Màu nền cho hàng chẵn */
+        }
+
+        tr:hover {
+            background-color: #d1ecf1; /* Hiệu ứng hover cho hàng */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <a class="btn btn-primary" th:href="@{/register}">
+        Đăng ký thêm
+    </a>
+    <h2>Danh sách đăng ký thi đấu</h2>
+
+    <!-- Table to Display Registered Participants -->
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Tên Tay Đua</th>
+            <th>Đội Đua</th>
+            <th>Chặng Đua</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="participant : ${registeredParticipants}">
+            <td th:text="${participant.driver.name}"></td>
+            <td th:text="${participant.team.name}"></td>
+            <td th:text="${participant.race.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
